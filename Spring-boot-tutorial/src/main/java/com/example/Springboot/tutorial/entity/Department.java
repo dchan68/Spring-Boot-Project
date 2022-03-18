@@ -4,17 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity //This annotation is used to make this class an entity to interact with our DB using the JPA
+//@Data //Comes from lombok dependency and plugin and will replace all the arg constructors, getters/setters, toString
+//@NoArgsConstructor //Also from lombok, which takes care of no argument constructor
+//@AllArgsConstructor //Also from lombok
+@Builder
 public class Department {
 	
 	@Id //Table has primary key so this annotation will create our primary key. Will make departmentId as primary key
 	@GeneratedValue(strategy = GenerationType.AUTO) //will generate our primary key
 	private Long departmentId;
+	
+	//Annotation below is Part of hibernate validation
+	@NotBlank(message = "Please add department name")//Will make departmentName a mandatory requirement. Without this, will not be valid request if want to create department. DepartmentName is the min requirement
 	private String departmentName;
 	private String departmentAddress;
 	private String departmentCode;
 	
+
+//Can Commented all codes below this out since lombok will do this with less code using annotation @Data, @NoArgsConstructor, @AllArgsConstuctor	
 	public Department() {
 		super();
 	}
