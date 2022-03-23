@@ -43,6 +43,12 @@ public class Department {
 		this.departmentCode = departmentCode;
 	}
 	
+	public Department(String departmentName, String departmentAddress, String departmentCode) {
+		this.departmentName = departmentName;
+		this.departmentAddress = departmentAddress;
+		this.departmentCode = departmentCode;
+	}
+
 	public Long getDepartmentId() {
 		return departmentId;
 	}

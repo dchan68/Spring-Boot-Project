@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Springboot.tutorial.entity.Department;
+//import com.example.Springboot.tutorial.error.DepartmentNotFoundException;
 import com.example.Springboot.tutorial.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

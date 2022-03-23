@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.example.Springboot.tutorial.entity.Department;
-import com.example.Springboot.tutorial.error.DepartmentNotFoundException;
 import com.example.Springboot.tutorial.repository.DepartmentRepository;
 
 @Service
@@ -29,15 +28,15 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 
 	@Override
-	public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
-        Optional<Department> department = departmentRepository.findById(departmentId);
-
-        if(!department.isPresent()) {
-            throw new DepartmentNotFoundException("Department Not Available");
-        }
-
-        return  department.get();
-        //return departmentRepository.findById(departmentId).get(); //Commented out this code to replace with one above
+	public Department fetchDepartmentById(Long departmentId){
+//        Optional<Department> department = departmentRepository.findById(departmentId);
+//
+//        if(!department.isPresent()) {
+//            throw new DepartmentNotFoundException("Department Not Available");
+//        }
+//
+//        return  department.get();
+        return departmentRepository.findById(departmentId).get(); //Commented out this code to replace with one above
 	}
 
 	@Override
